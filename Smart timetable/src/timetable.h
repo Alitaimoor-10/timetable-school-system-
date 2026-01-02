@@ -14,4 +14,7 @@ struct TimetableSlot {
     int day;
     int slot;
 };
+
+void initializeTimetable(TimetableSlot table[], int size);
+
 #endif
