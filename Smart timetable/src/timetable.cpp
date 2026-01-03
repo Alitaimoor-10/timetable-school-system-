@@ -1,6 +1,16 @@
 #include "timetable.h"
 
 
+bool isValidDay(int day)
+{
+    return day >= 0 && day < DAYS;
+}
+
+bool isValidSlot(int slot)
+{
+    return slot >= 0 && slot < SLOTS;
+}
+ 
 
 void initializeTimetable(TimetableSlot table[], int size)
 {
