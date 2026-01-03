@@ -55,6 +55,13 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
     cout <<"Enter teacher name: ";
     getline(cin, name);
 
+    for(int i = 0; i < size; i++)
+    {
+        if(table[i].teacher == name)
+        {
+            cout << table[i].subject << endl;
+        }
+    }
 }
 
 void roomWiseTimetable(TimetableSlot table[], int size)
