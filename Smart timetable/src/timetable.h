@@ -16,5 +16,7 @@ struct TimetableSlot {
 };
 
 void initializeTimetable(TimetableSlot table[], int size);
+bool isValidDay(int day);
+bool isValidSlot(int slot);
 
 #endif
