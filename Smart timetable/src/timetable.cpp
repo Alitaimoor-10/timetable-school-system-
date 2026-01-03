@@ -36,8 +36,12 @@ void viewTimetable(TimetableSlot table[], int size)
             cout <<"Day: " << table[i].day << endl;
 
             cout <<"Slot: " << table[i].slot << endl;
-            
-            cout << table[i].subject << endl;
+
+            cout <<"Teacher: " << table[i].teacher << endl;
+
+            cout <<"Room: " << table[i].room << endl;
+
+            cout << endl;
         }
     }
 }
