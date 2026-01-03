@@ -35,13 +35,15 @@ void viewTimetable(TimetableSlot table[], int size)
 
         if(table[i].subject != "")
         {
-            cout <<"Day: " << table[i].day << endl;
-
-            cout <<"Slot: " << table[i].slot << endl;
+            cout <<"Subject: " << table[i].subject << endl;
 
             cout <<"Teacher: " << table[i].teacher << endl;
 
             cout <<"Room: " << table[i].room << endl;
+
+            cout <<"Day: " << table[i].day << endl;
+
+            cout <<"Slot: " << table[i].slot << endl;
 
             cout << endl;
         }
@@ -59,11 +61,13 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
     {
         if(table[i].teacher == name)
         {
+            cout <<"Subject " << table[i].subject << endl;
+
+            cout <<"Room: " << table[i].room << endl;
+
             cout <<"Day: " << table[i].day << endl;
 
             cout <<"Slot: " << table[i].slot << endl;
-
-            cout <<"Room: " << table[i].room << endl;
 
             cout << endl;
         }
@@ -81,7 +85,17 @@ void roomWiseTimetable(TimetableSlot table[], int size)
     {
         if(table[i].room == roomName)
         {
-            cout << table[i].subject << endl;
+            cout <<"Subject: " << table[i].subject << endl;
+
+            cout <<"Teacher: " << table[i].teacher << endl;
+
+            cout <<"Room: " << table[i].room << endl;
+
+            cout <<"Day: " << table[i].day << endl;
+
+            cout <<"Slot: " << table[i].slot << endl;
+
+            cout << endl;
         }
     }
 }
