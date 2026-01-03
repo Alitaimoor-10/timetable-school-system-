@@ -18,5 +18,8 @@ struct TimetableSlot {
 void initializeTimetable(TimetableSlot table[], int size);
 bool isValidDay(int day);
 bool isValidSlot(int slot);
+void viewTimetable(TimetableSlot table[], int size);
+void teacherWiseTimetable(TimetableSlot table[], int size);
+void roomWiseTimetable(TimetableSlot table[], int size);
 
 #endif
