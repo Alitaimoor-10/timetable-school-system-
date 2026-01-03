@@ -72,5 +72,8 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
 
 void roomWiseTimetable(TimetableSlot table[], int size)
 {
+    string roomName;
 
+    cout<<"Enter room: ";
+    getline(cin, roomName);
 }
