@@ -76,4 +76,12 @@ void roomWiseTimetable(TimetableSlot table[], int size)
 
     cout<<"Enter room: ";
     getline(cin, roomName);
+
+    for(int i = 0; i < size; i++)
+    {
+        if(table[i].room == roomName)
+        {
+            cout << table[i].subject << endl;
+        }
+    }
 }
