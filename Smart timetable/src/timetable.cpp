@@ -1,3 +1,4 @@
+#include <iostream>
 #include "timetable.h"
 
 
@@ -28,7 +29,13 @@ void initializeTimetable(TimetableSlot table[], int size)
 
 void viewTimetable(TimetableSlot table[], int size)
 {
-
+    for(int i = 0; i < size; i++)
+    {
+        if(table[i].subject != "")
+        {
+            cout << table[i].subject << endl;
+        }
+    }
 }
 
 void teacherWiseTimetable(TimetableSlot table[], int size)
@@ -38,5 +45,5 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
 
 void roomWiseTimetable(TimetableSlot table[], int size)
 {
-    
+
 }
