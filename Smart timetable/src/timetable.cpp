@@ -59,7 +59,13 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
     {
         if(table[i].teacher == name)
         {
-            cout << table[i].subject << endl;
+            cout <<"Day: " << table[i].day << endl;
+
+            cout <<"Slot: " << table[i].slot << endl;
+
+            cout <<"Room: " << table[i].room << endl;
+
+            cout << endl;
         }
     }
 }
