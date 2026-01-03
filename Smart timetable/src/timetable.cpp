@@ -23,3 +23,20 @@ void initializeTimetable(TimetableSlot table[], int size)
         table[i].slot = -1;
     }
 }
+
+
+
+void viewTimetable(TimetableSlot table[], int size)
+{
+
+}
+
+void teacherWiseTimetable(TimetableSlot table[], int size)
+{
+
+}
+
+void roomWiseTimetable(TimetableSlot table[], int size)
+{
+    
+}
