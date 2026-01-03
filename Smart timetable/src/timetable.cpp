@@ -31,6 +31,8 @@ void viewTimetable(TimetableSlot table[], int size)
 {
     for(int i = 0; i < size; i++)
     {
+        cout<<"Timetable:\n";
+
         if(table[i].subject != "")
         {
             cout <<"Day: " << table[i].day << endl;
@@ -48,6 +50,10 @@ void viewTimetable(TimetableSlot table[], int size)
 
 void teacherWiseTimetable(TimetableSlot table[], int size)
 {
+    string name;
+
+    cout <<"Enter teacher name: ";
+    getline(cin, name);
 
 }
 
