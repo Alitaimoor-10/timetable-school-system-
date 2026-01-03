@@ -33,6 +33,10 @@ void viewTimetable(TimetableSlot table[], int size)
     {
         if(table[i].subject != "")
         {
+            cout <<"Day: " << table[i].day << endl;
+
+            cout <<"Slot: " << table[i].slot << endl;
+            
             cout << table[i].subject << endl;
         }
     }
