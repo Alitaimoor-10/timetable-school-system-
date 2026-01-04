@@ -3,9 +3,6 @@
 
 using namespace std;
 
-void addTimetable(TimetableSlot table[], int size)
-{
-}
 
 
 
