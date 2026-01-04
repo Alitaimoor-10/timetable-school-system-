@@ -53,6 +53,34 @@ void showMenu()
     cout << "Enter your choice: ";
 }
 
+#include <fstream>
+
+void saveTimetableToFile(TimetableSlot table[], int size)
+{
+    ofstream file("timetable.txt");
+
+    if (!file)
+    {
+        cout << "Error opening file for writing.\n";
+        return;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        if (table[i].day != -1)
+        {
+            file << table[i].day << " "
+                 << table[i].slot << "\n"
+                 << table[i].subject << "\n"
+                 << table[i].teacher << "\n"
+                 << table[i].room << "\n";
+        }
+    }
+
+    file.close();
+    cout << "Timetable saved to file successfully.\n";
+}
+
 void addTimetable(TimetableSlot table[], int size)
 {
     int day;
