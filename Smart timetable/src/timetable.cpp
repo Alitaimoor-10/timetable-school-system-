@@ -75,6 +75,7 @@ void addTimetable(TimetableSlot table[], int size)
     table[i].subject = subject;
     table[i].teacher = teacher;
     table[i].room = room;
+    cout << "Timetable entry added successfully.\n";
 }
  
 
