@@ -47,6 +47,11 @@ void addTimetable(TimetableSlot table[], int size)
     int day;
     cout << "Enter day (0 to 4): ";
     cin >> day;
+    if (!isValidDay(day))
+    {
+        cout << "Invalid day!\n";
+        return;
+    }
 }
  
 
