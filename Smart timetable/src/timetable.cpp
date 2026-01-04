@@ -11,6 +11,36 @@ bool isValidSlot(int slot)
 {
     return slot >= 0 && slot < SLOTS;
 }
+bool addTimetableEntry(
+    TimetableSlot table[],
+    int size,
+    string subject,
+    string teacher,
+    string room,
+    int day,
+    int slot
+)
+{
+    if (!isValidDay(day) || !isValidSlot(slot))
+    {
+        return false;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        if (table[i].day == -1 && table[i].slot == -1)
+        {
+            table[i].subject = subject;
+            table[i].teacher = teacher;
+            table[i].room = room;
+            table[i].day = day;
+            table[i].slot = slot;
+            return true;
+        }
+    }
+
+    return false;
+}
  
 
 void initializeTimetable(TimetableSlot table[], int size)

@@ -21,5 +21,15 @@ bool isValidSlot(int slot);
 void viewTimetable(TimetableSlot table[], int size);
 void teacherWiseTimetable(TimetableSlot table[], int size);
 void roomWiseTimetable(TimetableSlot table[], int size);
+bool addTimetableEntry(
+    TimetableSlot table[],
+    int size,
+    string subject,
+    string teacher,
+    string room,
+    int day,
+    int slot
+);
+
 
 #endif
