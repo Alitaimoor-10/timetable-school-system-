@@ -42,6 +42,10 @@ bool addTimetableEntry(
     return false;
 }
  
+void addTimetable(TimetableSlot table[], int size)
+{
+}
+ 
 
 void initializeTimetable(TimetableSlot table[], int size)
 {
