@@ -18,7 +18,9 @@ int main()
         cout << "1. Add Timetable Entry\n";
         cout << "2. View Timetable\n";
         cout << "3. Save Timetable to File\n";
-        cout <<"4. view timetable by teacher\n;"
+        cout <<"4. view timetable by teacher\n";
+        cout << "5. View Timetable by Room\n";
+
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -41,6 +43,11 @@ int main()
         {
             teacherWiseTimetable(timetable, 10);
         }
+        else if (choice == 5)
+        {
+            roomWiseTimetable(timetable, 10);
+        }
+
 
         else if (choice == 0)
         {
