@@ -55,6 +55,11 @@ void addTimetable(TimetableSlot table[], int size)
     int slot;
     cout << "Enter slot (0 to 3): ";
     cin >> slot;
+    if (!isValidSlot(slot))
+    {
+        cout << "Invalid slot!\n";
+        return;
+    }
 }
  
 
