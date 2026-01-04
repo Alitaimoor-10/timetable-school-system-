@@ -59,10 +59,9 @@ void initializeTimetable(TimetableSlot table[], int size)
 
 void viewTimetable(TimetableSlot table[], int size)
 {
+    cout << "Timetable:\n";
     for(int i = 0; i < size; i++)
     {
-        cout<<"Timetable:\n";
-
         if(table[i].subject != "")
         {
             cout <<"Subject: " << table[i].subject << endl;
