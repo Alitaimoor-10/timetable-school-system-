@@ -67,6 +67,9 @@ void addTimetable(TimetableSlot table[], int size)
     string teacher;
     cout << "Enter teacher: ";
     getline(cin, teacher);
+    string room;
+    cout << "Enter room: ";
+    getline(cin, room);
 }
  
 
