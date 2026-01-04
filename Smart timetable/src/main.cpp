@@ -7,6 +7,8 @@ void addTimetable(TimetableSlot table[], int size)
 {
 }
 
+
+
 int main()
 {
     TimetableSlot timetable[10];
