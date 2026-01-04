@@ -41,7 +41,18 @@ bool addTimetableEntry(
 
     return false;
 }
- 
+
+void showMenu()
+{
+    cout << "\n===== TIMETABLE MANAGEMENT SYSTEM =====\n";
+    cout << "1. Add Timetable Entry\n";
+    cout << "2. View Timetable\n";
+    cout << "3. View Teacher-wise Timetable\n";
+    cout << "4. View Room-wise Timetable\n";
+    cout << "0. Exit\n";
+    cout << "Enter your choice: ";
+}
+
 void addTimetable(TimetableSlot table[], int size)
 {
     int day;
