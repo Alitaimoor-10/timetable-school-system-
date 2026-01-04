@@ -22,6 +22,8 @@ bool isValidSlot(int slot);
 void viewTimetable(TimetableSlot table[], int size);
 void teacherWiseTimetable(TimetableSlot table[], int size);
 void roomWiseTimetable(TimetableSlot table[], int size);
+void saveTimetableToFile(TimetableSlot table[], int size);
+
 bool addTimetableEntry(
     TimetableSlot table[],
     int size,
