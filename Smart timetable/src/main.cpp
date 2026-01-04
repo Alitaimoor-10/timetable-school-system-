@@ -3,61 +3,42 @@
 
 using namespace std;
 
-
-
 int main()
 {
-    TimetableSlot timetable[10];
+    const int SIZE = 100;
+    TimetableSlot table[SIZE];
+
+    initializeTimetable(table, SIZE);
+
     int choice;
-
-    initializeTimetable(timetable, 10);
-
     do
     {
-        cout << "\n===== TIMETABLE MANAGEMENT SYSTEM =====\n";
-        cout << "1. Add Timetable Entry\n";
-        cout << "2. View Timetable\n";
-        cout << "3. Save Timetable to File\n";
-        cout <<"4. view timetable by teacher\n";
-        cout << "5. View Timetable by Room\n";
-
-        cout << "0. Exit\n";
-        cout << "Enter your choice: ";
+        showMenu();
         cin >> choice;
-        cin.ignore();
 
-        if (choice == 1)
+        switch (choice)
         {
-            addTimetable(timetable, 10);
-        }
-        else if (choice == 2)
-        {
-            viewTimetable(timetable, 10);
-        }
-        else if (choice == 3)
-        {
-            saveTimetableToFile(timetable, 10);
-
-        }
-        else if (choice == 4)
-        {
-            teacherWiseTimetable(timetable, 10);
-        }
-        else if (choice == 5)
-        {
-            roomWiseTimetable(timetable, 10);
-        }
-
-
-        else if (choice == 0)
-        {
-            cout << "Exiting program...\n";
-        }
-        else
-        {
+        case 1:
+            addTimetable(table, SIZE);
+            break;
+        case 2:
+            viewTimetable(table, SIZE);
+            break;
+        case 3:
+            teacherWiseTimetable(table, SIZE);
+            break;
+        case 4:
+            roomWiseTimetable(table, SIZE);
+            break;
+        case 5:
+            saveTimetableToFile(table, SIZE);
+            break;
+        case 0:
+            cout << "Exiting...\n";
+            break;
+        default:
             cout << "Invalid choice!\n";
         }
-
     } while (choice != 0);
 
     return 0;

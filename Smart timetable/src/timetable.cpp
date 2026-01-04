@@ -1,6 +1,9 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "timetable.h"
 
+using namespace std;
 
 bool isValidDay(int day)
 {
@@ -11,35 +14,17 @@ bool isValidSlot(int slot)
 {
     return slot >= 0 && slot < SLOTS;
 }
-bool addTimetableEntry(
-    TimetableSlot table[],
-    int size,
-    string subject,
-    string teacher,
-    string room,
-    int day,
-    int slot
-)
-{
-    if (!isValidDay(day) || !isValidSlot(slot))
-    {
-        return false;
-    }
 
+void initializeTimetable(TimetableSlot table[], int size)
+{
     for (int i = 0; i < size; i++)
     {
-        if (table[i].day == -1 && table[i].slot == -1)
-        {
-            table[i].subject = subject;
-            table[i].teacher = teacher;
-            table[i].room = room;
-            table[i].day = day;
-            table[i].slot = slot;
-            return true;
-        }
+        table[i].subject = "";
+        table[i].teacher = "";
+        table[i].room = "";
+        table[i].day = -1;
+        table[i].slot = -1;
     }
-
-    return false;
 }
 
 void showMenu()
@@ -54,32 +39,35 @@ void showMenu()
     cout << "Enter your choice: ";
 }
 
-#include <fstream>
-
-void saveTimetableToFile(TimetableSlot table[], int size)
+bool addTimetableEntry(TimetableSlot table[], int size, string subject, string teacher, string room, int day, int slot)
 {
-    ofstream file("timetable.txt");
-
-    if (!file)
+    if (!isValidDay(day) || !isValidSlot(slot))
     {
-        cout << "Error opening file for writing.\n";
-        return;
+        return false;
     }
 
     for (int i = 0; i < size; i++)
     {
-        if (table[i].day != -1)
+        if (table[i].day == day && table[i].slot == slot)
         {
-            file << table[i].day << " "
-                 << table[i].slot << "\n"
-                 << table[i].subject << "\n"
-                 << table[i].teacher << "\n"
-                 << table[i].room << "\n";
+            return false;
         }
     }
 
-    file.close();
-    cout << "Timetable saved to file successfully.\n";
+    for (int i = 0; i < size; i++)
+    {
+        if (table[i].day == -1)
+        {
+            table[i].subject = subject;
+            table[i].teacher = teacher;
+            table[i].room = room;
+            table[i].day = day;
+            table[i].slot = slot;
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void addTimetable(TimetableSlot table[], int size)
@@ -110,46 +98,30 @@ void addTimetable(TimetableSlot table[], int size)
     string room;
     cout << "Enter room: ";
     getline(cin, room);
-    table[i].day = day;
-    table[i].slot = slot;
-    table[i].subject = subject;
-    table[i].teacher = teacher;
-    table[i].room = room;
-    cout << "Timetable entry added successfully.\n";
-}
- 
 
-void initializeTimetable(TimetableSlot table[], int size)
-{
-    for (int i = 0; i < size; i++)
+    bool result = addTimetableEntry(table, size, subject, teacher, room, day, slot);
+    if (result)
     {
-        table[i].subject = "";
-        table[i].teacher = "";
-        table[i].room = "";
-        table[i].day = -1;
-        table[i].slot = -1;
+        cout << "Timetable entry added successfully.\n";
+    }
+    else
+    {
+        cout << "Failed to add entry.\n";
     }
 }
-
-
 
 void viewTimetable(TimetableSlot table[], int size)
 {
     cout << "Timetable:\n";
     for(int i = 0; i < size; i++)
     {
-        if(table[i].subject != "")
+        if(table[i].day != -1)
         {
-            cout <<"Subject: " << table[i].subject << endl;
-
-            cout <<"Teacher: " << table[i].teacher << endl;
-
-            cout <<"Room: " << table[i].room << endl;
-
-            cout <<"Day: " << table[i].day << endl;
-
-            cout <<"Slot: " << table[i].slot << endl;
-
+            cout << "Subject: " << table[i].subject << endl;
+            cout << "Teacher: " << table[i].teacher << endl;
+            cout << "Room: " << table[i].room << endl;
+            cout << "Day: " << table[i].day << endl;
+            cout << "Slot: " << table[i].slot << endl;
             cout << endl;
         }
     }
@@ -158,22 +130,18 @@ void viewTimetable(TimetableSlot table[], int size)
 void teacherWiseTimetable(TimetableSlot table[], int size)
 {
     string name;
-
-    cout <<"Enter teacher name: ";
+    cin.ignore();
+    cout << "Enter teacher name: ";
     getline(cin, name);
 
     for(int i = 0; i < size; i++)
     {
         if(table[i].teacher == name)
         {
-            cout <<"Subject " << table[i].subject << endl;
-
-            cout <<"Room: " << table[i].room << endl;
-
-            cout <<"Day: " << table[i].day << endl;
-
-            cout <<"Slot: " << table[i].slot << endl;
-
+            cout << "Subject: " << table[i].subject << endl;
+            cout << "Room: " << table[i].room << endl;
+            cout << "Day: " << table[i].day << endl;
+            cout << "Slot: " << table[i].slot << endl;
             cout << endl;
         }
     }
@@ -182,25 +150,45 @@ void teacherWiseTimetable(TimetableSlot table[], int size)
 void roomWiseTimetable(TimetableSlot table[], int size)
 {
     string roomName;
-
-    cout<<"Enter room: ";
+    cin.ignore();
+    cout << "Enter room: ";
     getline(cin, roomName);
 
     for(int i = 0; i < size; i++)
     {
         if(table[i].room == roomName)
         {
-            cout <<"Subject: " << table[i].subject << endl;
-
-            cout <<"Teacher: " << table[i].teacher << endl;
-
-            cout <<"Room: " << table[i].room << endl;
-
-            cout <<"Day: " << table[i].day << endl;
-
-            cout <<"Slot: " << table[i].slot << endl;
-
+            cout << "Subject: " << table[i].subject << endl;
+            cout << "Teacher: " << table[i].teacher << endl;
+            cout << "Day: " << table[i].day << endl;
+            cout << "Slot: " << table[i].slot << endl;
             cout << endl;
         }
     }
+}
+
+void saveTimetableToFile(TimetableSlot table[], int size)
+{
+    ofstream file("timetable.txt");
+
+    if (!file)
+    {
+        cout << "Error opening file for writing.\n";
+        return;
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        if (table[i].day != -1)
+        {
+            file << table[i].day << " "
+                 << table[i].slot << "\n"
+                 << table[i].subject << "\n"
+                 << table[i].teacher << "\n"
+                 << table[i].room << "\n";
+        }
+    }
+
+    file.close();
+    cout << "Timetable saved to file successfully.\n";
 }
