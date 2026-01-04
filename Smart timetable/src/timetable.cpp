@@ -49,6 +49,7 @@ void showMenu()
     cout << "2. View Timetable\n";
     cout << "3. View Teacher-wise Timetable\n";
     cout << "4. View Room-wise Timetable\n";
+    cout << "5. Save Timetable to File\n";
     cout << "0. Exit\n";
     cout << "Enter your choice: ";
 }
