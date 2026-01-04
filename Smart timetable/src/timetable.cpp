@@ -70,6 +70,11 @@ void addTimetable(TimetableSlot table[], int size)
     string room;
     cout << "Enter room: ";
     getline(cin, room);
+    table[i].day = day;
+    table[i].slot = slot;
+    table[i].subject = subject;
+    table[i].teacher = teacher;
+    table[i].room = room;
 }
  
 
