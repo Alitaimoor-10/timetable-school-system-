@@ -60,6 +60,10 @@ void addTimetable(TimetableSlot table[], int size)
         cout << "Invalid slot!\n";
         return;
     }
+    string subject;
+    cin.ignore();
+    cout << "Enter subject: ";
+    getline(cin, subject);
 }
  
 
